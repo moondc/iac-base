@@ -19,7 +19,7 @@ variable "ecr_repo" {
 }
 
 variable "api_content" {
-  default = {"status":"up"}
+  default = "{\"status\":\"up\"}"
   type    = string
 }
 
