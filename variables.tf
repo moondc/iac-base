@@ -22,3 +22,9 @@ variable "api_up_text" {
   default = "up"
   type    = string
 }
+
+variable "api_text_override" {
+  default = ""
+  type = string
+  description = "overrides the entire response, meaning no json if you dont want it"
+}
