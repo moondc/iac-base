@@ -38,38 +38,38 @@ resource "aws_route_table" "public_route_table" {
     }
 }
 
-resource "aws_route_table" "private_route_table" {
-    vpc_id = aws_vpc.main.id
+# resource "aws_route_table" "private_route_table" {
+#     vpc_id = aws_vpc.main.id
 
-    route {
-        cidr_block = "0.0.0.0/0"
-        nat_gateway_id =  aws_nat_gateway.nat_gateway.id
-    }
+#     route {
+#         cidr_block = "0.0.0.0/0"
+#         nat_gateway_id =  aws_nat_gateway.nat_gateway.id
+#     }
 
-    tags = { 
-        Name = "private_route_table"
-    }
-}
+#     tags = { 
+#         Name = "private_route_table"
+#     }
+# }
 
-resource "aws_nat_gateway" "nat_gateway"{
-    subnet_id = aws_subnet.public.id
-    allocation_id = aws_eip.eip.id
-}
+# resource "aws_nat_gateway" "nat_gateway"{
+#     subnet_id = aws_subnet.public.id
+#     allocation_id = aws_eip.eip.id
+# }
 
 resource "aws_eip" "eip" {
     domain = "vpc"
 }
 
 
-resource "aws_route_table_association" "rt" {
-    route_table_id = aws_route_table.public_route_table.id
-    subnet_id = aws_subnet.public.id
-}
+# resource "aws_route_table_association" "rt" {
+#     route_table_id = aws_route_table.public_route_table.id
+#     subnet_id = aws_subnet.public.id
+# }
 
-resource "aws_route_table_association" "private_route_table" {
-    route_table_id = aws_route_table.private_route_table.id
-    subnet_id = aws_subnet.private.id
-}
+# resource "aws_route_table_association" "private_route_table" {
+#     route_table_id = aws_route_table.private_route_table.id
+#     subnet_id = aws_subnet.private.id
+# }
 
 
 
