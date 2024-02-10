@@ -24,6 +24,6 @@ variable "api_content" {
 }
 
 variable "api_content_type" {
-  default = "application/json"
+  default = "text/html"
   type    = string
 }
