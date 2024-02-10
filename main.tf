@@ -187,7 +187,7 @@ resource "aws_api_gateway_integration_response" "mock_response" {
     http_method = aws_api_gateway_method.methodRoot.http_method
     status_code = aws_api_gateway_method_response.two_hundred.status_code
     response_templates = {
-        var.api_content_type = var.api_content
+        (var.api_content_type) = var.api_content
     }
 }
 
