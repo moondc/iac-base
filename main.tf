@@ -265,3 +265,13 @@ resource "aws_ecr_lifecycle_policy" "ecr_policy"{
 }
 EOF
 }
+
+// VPC Endpoint
+
+resource "aws_vpc_endpoint" "ecs" {
+    vpc_id = aws_vpc.main.id
+    service_name = "com.amazonaws.us-east-2.ecs"
+    tags = {
+        Name = var.ecr_repo
+    }
+}
